@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTOKotoba Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <h1>OTOKotoba</h1>
+        <nav>
+            <a href="../">ホーム</a>
+            <a href="../setup.html">セットアップ</a>
+            <a href="../commands.html">コマンド一覧</a>
+            <a href="../release/index.html">正式版利用規約</a>
+            <a href="../dev/index.html">開発版利用規約</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div id="content"></div>
+    </div>
+
+    <script>
+        fetch('./terms.md') // Markdownファイルを取得
+            .then(response => response.text())
+            .then(text => {
+                document.getElementById('content').innerHTML = marked.parse(text);
+            });
+    </script>
+</body>
+</html>
